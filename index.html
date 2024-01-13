@@ -14,7 +14,43 @@
             <input type="text" placeholder="enter city name" spellcheck="false">
             <button><img src="images 4/search.png"></button>
         </div>
+        <div class="weather">
+            <img src="images 4/rain.png" class="weather-icon">
+            <h1 class="temp">22°c</h1>
+            <h2 class="city">New York</h2>
+            <div class="details">
+                <div class="col">
+                    <img src="images 4/humidity.png">
+                    <div>
+                        <p class="humidity">50%</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="images 4/wind.png">
+                    <div>
+                        <p class="wind">15 km/h</p>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+
+        const apiKey = "7219d8322b8283381470e92f3564c1a5";
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=bangalore";
+
+        async function checkWeather() {
+            const response = await fetch(apiUrl + `&appid=${apiKey}`);
+            var data = await response.json();
+
+            console.log(data);
+        }
+        checkWeather();
+    </script>
+
 </body>
 
 </html>
